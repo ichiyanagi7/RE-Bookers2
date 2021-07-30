@@ -1,4 +1,17 @@
 <div class="container">
+
+<% if @book.errors.any? %>
+  <div class="alert alert-danger">
+      <h4><%= @book.errors.count %> errors prohibited this obj from being saved:</h4>
+      <% @book.errors.full_messages.each do |message| %>
+        <ul>
+          <li><%= message %></li>
+        </ul>
+      <% end %>
+  </div>
+<% end %>
+
+
   <div class="row">
     <div class="col-md-3">
       <%= render "layouts/userinfo",user:@user %>

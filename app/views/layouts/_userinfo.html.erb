@@ -1,6 +1,6 @@
 
       <h2>User info</h2>
-      <%= attachment_image_tag user.profile_image,:profile_image,:fill,60,60,fallback:"no_image.jpg" %>
+      <%= attachment_image_tag user,:profile_image,:fill,100,100,fallback:"no_image.jpg" %>
       <table class="table">
         <tbody>
           <tr>
@@ -16,14 +16,14 @@
 
 <!--User編集----------------------------------------------------------------->
 
-      <%= link_to edit_user_path(current_user) ,class:"btn btn-block btn-outline-secondary" do %>
+      <%= link_to edit_user_path(user) ,class:"btn btn-block btn-outline-secondary" do %>
         <i class="fas fa-user-cog"></i>
       <% end %>
 
 
 <!--New book----------------------------------------------------------------->
       <h2 class="mt-3">New book</h2>
-      <%= form_with model:@booknew, local:true do |f| %>
+      <%= form_with model:@book, local:true do |f| %>
 
       <div class="form-group">
       <%= f.label :title %><br>
