@@ -30,6 +30,12 @@
             <td>
               <%= book.body %>
             </td>
+            <td>
+              いいね数:<%= book.favorites.count %>
+            </td>
+            <td nowrap>
+              コメント数:<%= book.book_comments.count %>
+            </td>
           </tr>
         </tbody>
       <% end %>

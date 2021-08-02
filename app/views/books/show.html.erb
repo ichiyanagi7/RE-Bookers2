@@ -1,4 +1,6 @@
 <div class="container">
+
+
   <div class="row">
     <div class="col-md-3">
       <%= render "layouts/userinfo",user:@user %>
@@ -27,7 +29,7 @@
 
             <td nowrap>
               <% if @books.favorited_by?(current_user) %>
-                <%= link_to book_favorites_path(@books),method: :delete ,class:"link-text" do %>
+                <%= link_to book_favorites_path(@books),method: :delete ,class:"text-danger" do %>
                   <i class="fas fa-heart"></i><%= @books.favorites.count %>
                 <% end %>
               <% else %>
