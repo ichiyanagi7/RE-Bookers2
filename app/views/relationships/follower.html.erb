@@ -13,7 +13,7 @@
        <th></th>
      </tr>
    </thead>
-  <% @user.following_user.where.not(id: current_user.id).each do |user| %>
+   <% @user.following_user.where.not(id: current_user.id).each do |user| %>
    <tbody>
      <tr>
        <td>
@@ -33,6 +33,6 @@
         </td>
      </tr>
    </tbody>
+   <% end %>
  </table>
- <% end %>
  <% end %>
