@@ -36,7 +36,7 @@
         <td>
           <%= attachment_image_tag user,:profile_image,:fill,40,40,fallbck:"no_image.jpg",size:"40x40" %>
         </td>
-        <td><%= user.name %></td>
+        <td><%= link_to user.name,user_path(user) %></td>
         <td><%= user.introduction %></td>
       </tr>
     <% end %>
