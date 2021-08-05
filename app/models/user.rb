@@ -12,7 +12,7 @@ class User < ApplicationRecord
   has_many :follower,class_name:"Relationship",foreign_key:"follower_id",dependent: :destroy
 # 自分がフォローしている人
   has_many :following_user,through: :follower,source: :followed
-  
+
 # フォロワー取得
   has_many :followed,class_name:"Relationship",foreign_key:"followed_id",dependent: :destroy
 
@@ -39,5 +39,23 @@ class User < ApplicationRecord
 
   validates :name,length:{minimum:2,maximum:20},uniqueness:true
   validates :introduction,length:{maximum:50}
+
+  # 検索機能----------------------------------------------------------
+
+  def self.search(search,word)
+    if search == "forward_match"
+      @user=User.where("name like?","#{word}%")
+    elsif search == "backward_match"
+      @user=User.where("name like?","%#{word}")
+    elsif search == "perfect_match"
+      @user=User.where(name:"#{word}")
+    elsif search == "partial_match"
+      @user=User.where("name like?","%#{word}%")
+    else
+      @user=User.all
+    end
+  end
+
+  # ------------------------------------------------------------------
 
 end
