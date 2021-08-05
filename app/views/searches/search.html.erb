@@ -32,13 +32,13 @@
     </thead>
     <tbody>
     <% @users.each do |user| %>
-    <tr>
-      <td>
-        <%= attachment_image_tag user,:profile_image,:fill,40,40,fallbck:"no_image.jpg",size:"40x40" %>
-      </td>
-      <td><%= user.name %></td>
-      <td><%= user.introduction %></td>
-    </tr>
+      <tr>
+        <td>
+          <%= attachment_image_tag user,:profile_image,:fill,40,40,fallbck:"no_image.jpg",size:"40x40" %>
+        </td>
+        <td><%= user.name %></td>
+        <td><%= user.introduction %></td>
+      </tr>
     <% end %>
     </tbody>
   <% end %>

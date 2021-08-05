@@ -4,11 +4,13 @@ class SearchesController < ApplicationController
     search=params[:search]
     word=params[:word]
     @word="#{word}"
-    
-    if @range == 1
+
+    if @range == "1"
       @users=User.search(search,word)
     else
       @books=Book.search(search,word)
     end
+
   end
+
 end

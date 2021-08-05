@@ -41,7 +41,7 @@ class User < ApplicationRecord
   validates :introduction,length:{maximum:50}
 
   # 検索機能----------------------------------------------------------
-
+  
   def self.search(search,word)
     if search == "forward_match"
       @user=User.where("name like?","#{word}%")
@@ -55,7 +55,7 @@ class User < ApplicationRecord
       @user=User.all
     end
   end
-
+  
   # ------------------------------------------------------------------
 
 end
