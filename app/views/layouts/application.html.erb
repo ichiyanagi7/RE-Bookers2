@@ -63,19 +63,27 @@
         </ul>
         </div>
       </nav>
-
-      <div class="form-group col-md-8 offset-md-4 mt-2">
-        <%= render "layouts/search",class:"form-control" %>
-      </div>
-
     </header>
 
     <p><%= render "layouts/notification" %></p>
 
-    <%= yield %>
+
+  <!--検索機能ーTopには表示させない---------------------------------------------------------------->
+
+      <% if current_page?(root_path) %>
+      <% else %>
+      <div class="form-group text-right mr-3">
+        <%= render "layouts/search",class:"form-control" %>
+      </div>
+      <% end %>
+
+  <!----------------------------------------------------------------------------------------------->
+
+
+  <%= yield %>
+
 
   <footer>
-
     <div class="container mt-5">
       <div class="row">
         <div class="mx-auto">
@@ -83,12 +91,8 @@
         </div>
       </div>
     </div>
-
-
-
-
-
   </footer>
+
   </body>
 
 
