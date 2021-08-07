@@ -48,6 +48,8 @@
       </table>
 
   <!--コメント一覧表示----------------------------------------------------------------->
+      <h6 class="border-bottom mb-2">コメント一覧</h4>
+
       <table>
         <tbody>
         <% @book_comments.each do |book_comment| %>
@@ -59,6 +61,7 @@
               <% end %>
             </td>
             <td nowrap>
+              <!--ここを非同期通信にする-->
               <%= book_comment.comment %>
             </td>
             <td>
