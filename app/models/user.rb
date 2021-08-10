@@ -5,7 +5,10 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :books,dependent: :destroy
+
   has_many :favorites,dependent: :destroy
+  has_many :favorited_books,through: :favorites,source: :book
+
   has_many :book_comments,dependent: :destroy
 
 # フォロー取得
@@ -41,7 +44,7 @@ class User < ApplicationRecord
   validates :introduction,length:{maximum:50}
 
   # 検索機能----------------------------------------------------------
-  
+
   def self.search(search,word)
     if search == "forward_match"
       @user=User.where("name like?","#{word}%")
@@ -55,7 +58,7 @@ class User < ApplicationRecord
       @user=User.all
     end
   end
-  
+
   # ------------------------------------------------------------------
 
 end
